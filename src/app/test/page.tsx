@@ -23,7 +23,7 @@ export default function Home() {
       </ul>
       <button
         onClick={() =>
-          createUser.mutate({ name: 'New User', email: 'new@example.com' })
+          createUser.mutate({ name: 'New User3', email: 'new3@example.com' })
         }
       >
         Add User
