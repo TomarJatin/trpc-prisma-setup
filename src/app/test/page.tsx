@@ -3,8 +3,8 @@
 import { trpc } from '@/utils/trpc';
 
 export default function Home() {
-  const { data: users, isLoading } = trpc.user.getUsers.useQuery();
-  const createUser = trpc.user.createUser.useMutation({
+  const { data: users, isLoading } = trpc.test.getUsers.useQuery();
+  const createUser = trpc.test.createUser.useMutation({
     onSuccess: () => {
       // Invalidate and refetch
       // trpc.user.getUsers.invalidate();
