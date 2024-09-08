@@ -1,10 +1,10 @@
-'use client';
-import { Button } from '@/components/ui/button';
+"use client";
+import { Button } from "@/components/ui/button";
 // import { NEXT_GOOGLE_AUTH_CLIENT_ID, NEXT_GOOGLE_AUTH_REDIRECT_URI } from '@/constants/api';
-import Link from 'next/link';
+import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 const GetStarted = () => {
-
   return (
     <>
       <div className="flex min-h-screen flex-col items-center justify-center gap-6 bg-gradient-to-b from-blue-50 via-gray-50 to-red-50">
@@ -17,6 +17,7 @@ const GetStarted = () => {
         <Button
           className="z-10 flex w-[491px] gap-[23px] border-[#C4C4C4] bg-[#FBFCFD] px-[111px] py-[26px] hover:bg-[#563C5C] hover:text-white"
           variant="outline"
+          onClick={() => signIn("google")}
         >
           <svg
             width="27"
@@ -44,12 +45,13 @@ const GetStarted = () => {
           </svg>
           <p className="font-regular text-[20px]">Continue with Google</p>
         </Button>
+
         <footer className="z-10 text-center text-[#759AAB] dark:text-gray-500">
           By continuing, you acknowledge that you understand
-          <br /> and agree to the{' '}
+          <br /> and agree to the{" "}
           <Link href="/auth" className="font-medium underline">
              Terms & Conditions 
-          </Link>{' '}
+          </Link>{" "}
           and Privacy 
         </footer>
       </div>
