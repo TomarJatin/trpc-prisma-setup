@@ -9,7 +9,8 @@
 		"lint": "next lint",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"commitlint": "commitlint --edit"
 	},
 	"dependencies": {
 		"@prisma/client": "^5.17.0",
@@ -25,6 +26,8 @@
 		"zod": "^3.23.8"
 	},
 	"devDependencies": {
+		"@commitlint/cli": "^17.8.1",
+		"@commitlint/config-conventional": "^17.8.1",
 		"@types/node": "^20.14.12",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
