@@ -1,0 +1,24 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5442,
+      "askForPassword": true,
+      "driver": "PostgreSQL",
+      "name": "test-db-v1",
+      "database": "mynewdb",
+      "username": "postgres"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "askForPassword": true,
+      "driver": "PostgreSQL",
+      "name": "test-db-v2",
+      "database": "mynewdb",
+      "username": "postgres"
+    }
+  ]
+}

@@ -16,8 +16,8 @@ export function makeAllZodFieldsNullable<T extends ZodTypeAny>(
 ): T extends ZodObject<infer Shape extends ZodRawShape>
 	? ZodObject<NullableShape<Shape>>
 	: T extends ZodArray<infer ElementType>
-		? ZodArray<ReturnType<typeof makeAllZodFieldsNullable<ElementType>>>
-		: Nullable<T> {
+	? ZodArray<ReturnType<typeof makeAllZodFieldsNullable<ElementType>>>
+	: Nullable<T> {
 	if (schema instanceof ZodObject) {
 		const shape = schema.shape;
 		const newShape: any = {};
@@ -41,10 +41,10 @@ export function makeAllZodFieldsOptional<T extends ZodTypeAny>(
 			[K in keyof Shape]: ZodOptional<
 				ReturnType<typeof makeAllZodFieldsOptional<Shape[K]>>
 			>;
-		}>
+	  }>
 	: T extends ZodArray<infer ElementType>
-		? ZodArray<ReturnType<typeof makeAllZodFieldsOptional<ElementType>>>
-		: ZodOptional<T> {
+	? ZodArray<ReturnType<typeof makeAllZodFieldsOptional<ElementType>>>
+	: ZodOptional<T> {
 	if (schema instanceof ZodObject) {
 		const shape = schema.shape;
 		const newShape: any = {};
@@ -72,14 +72,12 @@ export function makeAllZodFieldsOptionalAndNullable<T extends ZodTypeAny>(
 					>
 				>
 			>;
-		}>
+	  }>
 	: T extends ZodArray<infer ElementType>
-		? ZodArray<
-				ReturnType<
-					typeof makeAllZodFieldsOptionalAndNullable<ElementType>
-				>
-			>
-		: ZodOptional<ZodNullable<T>> {
+	? ZodArray<
+			ReturnType<typeof makeAllZodFieldsOptionalAndNullable<ElementType>>
+	  >
+	: ZodOptional<ZodNullable<T>> {
 	if (schema instanceof ZodObject) {
 		const shape = schema.shape;
 		const newShape: any = {};

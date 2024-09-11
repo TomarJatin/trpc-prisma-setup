@@ -1,28 +1,12 @@
-version: "3"
+version: "3.8"
 services:
-    nextjs-app:
-        build:
-            context: .
-            dockerfile: Dockerfile
-            args:
-                # - NEXT_PUBLIC_BACKEND_BASE_URL=${NEXT_PUBLIC_BACKEND_BASE_URL}
-                # - STRAPI_API_URL=${STRAPI_API_URL}
-                - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
-                - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
-                - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
-                - NEXTAUTH_URL=${NEXTAUTH_URL}
-                # - key_id=${key_id}
-                # - key_secret=${key_secret}
-        ports:
-            - "3000:3000"
-        environment:
-            # - NEXT_PUBLIC_BACKEND_BASE_URL
-            # - STRAPI_API_URL
-            - GOOGLE_CLIENT_ID
-            - GOOGLE_CLIENT_SECRET
-            - NEXTAUTH_SECRET
-            - NEXTAUTH_URL
-            # - key_id
-            # - key_secret
-        env_file:
-            - .env
+  database:
+    container_name: postgres
+    image: postgres
+    restart: always
+    volumes:
+      - ./prisma:/docker-entrypoint-initdb.d
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
