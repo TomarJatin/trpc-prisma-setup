@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+[ -f .env.local ] && mv .env.local local-env
+yarn build
+[ -f local-env ] && mv local-env .env.local
+rm -rf .next/
